@@ -1,0 +1,77 @@
+
+package licao60;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Usuário Gabriel Galindo.
+ * Desenvolva um algoritmo que leia o nome, a idade e o sexo de várias pessoas.
+O programa vai perguntar se o usuário quer ou não continuar. No final, mostre:
+a) O nome da pessoa mais velha
+b) O nome da mulher mais jovem
+c) A média de idade do grupo
+d) Quantos homens tem mais de 30 anos
+e) Quantas mulheres tem menos de 18 anos
+ */
+public class Licao60 {
+
+   
+    public static void main(String[] args) {
+       int   i = 0, id, idmais = 0, idmenos = 0,  med = 0, idHM = 0,idFN = 0, soma = 0;
+       String nome, nomM = "", nomN = "", fim = "";
+       char sexo = 0;
+       
+       
+        
+                       
+             while(!fim.equals("000")){
+                 nome = JOptionPane.showInputDialog(" Informe seu nome: ");
+                 id = Integer.parseInt(JOptionPane.showInputDialog(" Informe sua idade: "));
+                 sexo = JOptionPane.showInputDialog(" Informe [m] [M] para o sexo for Masculino.\n  Informe [f] [F] para o sexo Feminino. ").charAt(0);
+                 
+                 
+                    if (i == 0 || id > idmais){
+                     idmais = id;
+                     nomM = nome;
+                     
+                 }
+                    if ( sexo == 'f'|| (i == 0 || id < idmenos) ){
+                        
+                         idmenos = id;
+                         nomN = nome;
+                     }
+                     if (sexo == 'f' ||  idFN < 18){
+                         idFN++;
+                     }
+                 
+                           
+                    if ( sexo == 'm'|| (idHM > 30 ) ){
+                        
+                         idHM++;
+                     }
+                        
+                     soma += id;
+                     
+                                    
+                    fim = JOptionPane.showInputDialog(" Deseja continuar o programa?\n Se quiser encerrar digite 000\n Ou qualquer tecla pra continuar..");
+         
+                     
+ 
+                 i++;
+    
+        }
+                     med += soma/i;
+                   
+
+                    JOptionPane.showMessageDialog(null,"_-_-_RESULTADO DO B.O_-_-_ ");
+                    JOptionPane.showMessageDialog(null," O nome da pessoa mais velha é "+nomM+".");
+                    JOptionPane.showMessageDialog(null," O nome da mulher mais jovem é "+nomN+".");
+                    JOptionPane.showMessageDialog(null," A média de idade do grupo é "+med+".");
+                    JOptionPane.showMessageDialog(null," Quantos homens tem mais de 30 anos\n       "+idHM++);
+                    JOptionPane.showMessageDialog(null," Quantas mulheres tem menos de 18 anos\n       "+idFN++);
+                    JOptionPane.showMessageDialog(null,"_-_-_-_ACABOU O B.O!!!!_-_-_-_ ");
+    }
+}
+
+
